@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raspberry Pi 5 | The Next Gen Pi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animated gradient background */
+    body {
+      background: linear-gradient(-45deg,#9333ea,#3b82f6,#14b8a6,#ef4444);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    @keyframes gradient {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    /* Floating chips animation */
+    .chip {
+      position: absolute;
+      width: 120px;
+      opacity: 0.15;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+    .chip:nth-child(1){top:10%;left:5%;animation-delay:0s;}
+    .chip:nth-child(2){bottom:15%;right:10%;animation-delay:3s;}
+    @keyframes float {
+      from {transform:translateY(0) rotate(0deg);}
+      to {transform:translateY(-40px) rotate(20deg);}
+    }
+
+    /* Fade-in + slide-up */
+    .fade-in {
+      opacity:0;
+      transform:translateY(40px);
+      animation: fadeUp 1.3s ease forwards;
+    }
+    @keyframes fadeUp {
+      to {opacity:1;transform:translateY(0);}
+    }
+
+    /* Glow hover for buttons */
+    .glow:hover {
+      box-shadow:0 0 25px rgba(255,255,255,0.4);
+      transform:scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="text-white font-sans overflow-hidden min-h-screen flex flex-col items-center justify-center text-center relative">
+
+  <!-- floating background images -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Raspberry_Pi_Logo.svg" class="chip" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Raspberry_Pi_Logo.svg" class="chip" />
+
+  <main class="z-10 px-6 fade-in">
+    <h1 class="text-6xl md:text-7xl font-extrabold mb-4 drop-shadow-lg">
+      Raspberry Pi 5
+    </h1>
+    <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto">
+      Smaller. Faster. Smarter.<br />
+      The pocket-sized powerhouse built for makers, coders & dreamers.
+    </p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-6">
+      <div class="bg-white/10 rounded-xl p-6 w-64 hover:bg-white/20 transition glow">
+        <h2 class="text-2xl font-bold mb-2">⚙️ Specs</h2>
+        <p class="text-sm text-white/70">
+          Quad-core 2.4 GHz A76 CPU<br/>
+          VideoCore VII GPU<br/>
+          4 GB / 8 GB LPDDR4X RAM<br/>
+          Dual 4K HDMI, PCIe 2.0, USB-C Power
+        </p>
+      </div>
+
+      <div class="bg-white/10 rounded-xl p-6 w-64 hover:bg-white/20 transition glow">
+        <h2 class="text-2xl font-bold mb-2">🔥 Power</h2>
+        <p class="text-sm text-white/70">
+          3× faster than Pi 4<br/>
+          NVMe SSD support for speed<br/>
+          Active cooling recommended for max performance
+        </p>
+      </div>
+
+      <div class="bg-white/10 rounded-xl p-6 w-64 hover:bg-white/20 transition glow">
+        <h2 class="text-2xl font-bold mb-2">💡 Uses</h2>
+        <p class="text-sm text-white/70">
+          DIY AI projects<br/>
+          Home server & NAS<br/>
+          Retro gaming<br/>
+          Dual-display media hub
+        </p>
+      </div>
+    </div>
+
+    <a href="https://www.raspberrypi.com/products/raspberry-pi-5/"
+       target="_blank"
+       class="mt-10 inline-block bg-white/10 border border-white/30 px-8 py-3 rounded-lg glow transition">
+       Learn More
+    </a>
+  </main>
+
+  <footer class="absolute bottom-4 text-white/60 text-sm">
+    © 2025 BADMOSH | Made with ⚡ for Raspberry Pi fans
+  </footer>
+
+</body>
+</html>
