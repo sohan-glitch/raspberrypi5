@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Raspberry Pi 5 | Full Showcase</title>
+<title>Raspberry Pi 5 | Showcase</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-}
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 body {
   background: linear-gradient(135deg, #050505, #10101b, #1a1a28);
   background-size: 400% 400%;
@@ -18,94 +15,67 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
-@keyframes bgmove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+@keyframes bgmove { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+
 .text-animate {
-  background: linear-gradient(90deg, #ff1b6b, #9d4edd, #ff1b6b);
-  background-size: 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textcolor 10s ease infinite;
+  background: linear-gradient(90deg,#2563eb,#1e3a8a,#2563eb);
+  background-size:300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:textcolor 10s ease infinite;
+  text-shadow:0 0 25px rgba(37,99,235,0.3),0 0 45px rgba(30,58,138,0.3);
 }
-@keyframes textcolor {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+@keyframes textcolor { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+
 .section {
-  scroll-snap-align: start;
-  min-height: 100vh;
-  padding: 7rem 1.5rem 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1s ease;
+  scroll-snap-align:start;
+  min-height:100vh;
+  padding:7rem 1.5rem 3rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  opacity:0;
+  transform:translateY(60px);
+  transition:all 1.2s ease;
 }
-.visible { opacity: 1; transform: translateY(0); }
+.visible { opacity:1; transform:translateY(0); }
+
 h2 {
-  position: sticky;
-  top: 1rem;
-  z-index: 10;
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+  position:sticky;
+  top:1rem;
+  z-index:10;
+  font-size:3rem;
+  font-weight:900;
+  margin-bottom:2rem;
 }
-p {
-  max-width: 900px;
-  text-align: justify;
-  font-size: 1.05rem;
-  color: #d5d5d5;
-  line-height: 1.7;
-}
+p { max-width:1000px; text-align:justify; font-size:1.3rem; color:#dcdcdc; line-height:1.8; }
+
 .image-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-top:2.5rem;
 }
 .image-group img {
-  width: 300px;
-  max-width: 40%;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  border-radius:10px;
+  box-shadow:0 0 25px rgba(0,102,255,0.4);
+  animation:floaty 6s ease-in-out infinite alternate;
   transition: transform 0.5s ease;
+  height:auto; max-width:100%;
 }
-.image-group img:hover {
-  transform: scale(1.05);
-}
+@keyframes floaty { from{transform:translateY(0px)} to{transform:translateY(-12px)} }
+.image-group img:hover{ transform:scale(1.02); }
 
-/* Scroll buttons */
 .nav-btn {
-  position: fixed;
-  right: 25px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  color: white;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s;
-  z-index: 1000;
+  position:fixed; right:25px; background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:50%; width:50px; height:50px; color:white;
+  font-size:1.5rem; display:flex; justify-content:center; align-items:center;
+  cursor:pointer; transition:0.3s; z-index:1000;
 }
-.nav-btn:hover { background: rgba(255, 255, 255, 0.25); }
-#upBtn { bottom: 90px; }
-#downBtn { bottom: 30px; }
+.nav-btn:hover{ background:rgba(255,255,255,0.25); }
+#upBtn{ bottom:90px; } #downBtn{ bottom:30px; }
 
-.spin { width: 64px; height: 64px; animation: spin 12s linear infinite; margin-bottom: 2rem; }
-@keyframes spin { to { transform: rotate(360deg); } }
+.spin { width:64px; height:64px; animation:spin 12s linear infinite; margin-bottom:2rem; }
+@keyframes spin{ to{ transform:rotate(360deg) } }
 </style>
 </head>
 
@@ -115,154 +85,112 @@ p {
 <section class="section" id="pg1">
   <img src="img1.jpg" alt="Pi" class="spin rounded-full shadow-lg">
   <h2 class="text-animate">Raspberry Pi 5</h2>
-  <p>
-    The Raspberry Pi 5 is a revolutionary single-board computer built for both tinkerers and developers.
-    Faster CPU, upgraded GPU, and advanced I/O architecture mark it as a generational leap.
-  </p>
+  <p>The Raspberry Pi 5 introduces unprecedented processing performance and improved I/O speed, enabling desktop-grade computing in an ultra-compact form factor.</p>
+  <div class="image-group">
+    <img src="pi1.jpg" alt="Pi1">
+    <img src="pi6.jpg" alt="Pi6">
+  </div>
 </section>
 
 <!-- PAGE 2 -->
 <section class="section" id="pg2">
   <h2 class="text-animate">Hardware Overview</h2>
-  <p>
-    The Raspberry Pi 5 features the Broadcom BCM2712 quad-core ARM Cortex-A76 processor running at 2.4 GHz,
-    paired with a VideoCore VII GPU that handles dual 4 K @ 60 Hz video output. The RP1 I/O controller brings PCIe,
-    USB, Ethernet, and display interfaces into one integrated chip.
-  </p>
+  <p>The Pi 5 features a Broadcom BCM2712 quad-core ARM Cortex-A76 CPU at 2.4GHz and a VideoCore VII GPU for dual 4K60 displays. RP1 I/O controller integrates USB, PCIe, Ethernet, and HDMI for modern connectivity.</p>
   <div class="image-group">
-    <img src="pi1.jpg" alt="">
-    <img src="pi6.jpg" alt="">
+    <img src="pi4.jpg" alt="Pi4">
+    <img src="pi8.jpg" alt="Pi8">
   </div>
 </section>
 
 <!-- PAGE 3 -->
 <section class="section" id="pg3">
   <h2 class="text-animate">Memory and Storage</h2>
-  <p>
-    Available in 4 GB and 8 GB LPDDR4X configurations, the Pi 5 provides rapid memory access for multitasking and server workloads.
-    Storage options include high-speed microSD and NVMe SSD through the PCIe 2.0 x1 connector, enabling quick OS boots and faster data transfer.
-  </p>
+  <p>Available in 4GB and 8GB LPDDR4X RAM, Pi 5 supports NVMe SSDs via PCIe 2.0 x1 for ultra-fast storage. MicroSD remains supported for OS testing and quick deployments.</p>
   <div class="image-group">
-    <img src="pi4.jpg" alt="">
-    <img src="pi8.jpg" alt="">
+    <img src="pi9.png" alt="Pi9">
+    <img src="pi10.jpg" alt="Pi10">
   </div>
 </section>
-
 <!-- PAGE 4 -->
 <section class="section" id="pg4">
   <h2 class="text-animate">Connectivity</h2>
-  <p>
-    Dual HDMI 2.0 ports, four USB (2× 3.0 + 2× 2.0), Gigabit Ethernet, Wi-Fi 5, and Bluetooth 5.0 offer unmatched versatility.
-    The new PCIe FPC connector expands external device possibilities such as NVMe SSDs and high-speed controllers.
-  </p>
+  <p>Dual HDMI 2.0 ports, four USB ports (2×3.0 + 2×2.0), Gigabit Ethernet, Wi-Fi 5, and Bluetooth 5.0 offer unmatched versatility. The PCIe FPC connector allows high-speed expansion like NVMe SSDs and external controllers.</p>
   <div class="image-group">
-    <img src="pi9.png" alt="">
-    <img src="pi10.jpg" alt="">
+    <img src="pi2.jpg" alt="Pi2">
   </div>
 </section>
 
 <!-- PAGE 5 -->
 <section class="section" id="pg5">
   <h2 class="text-animate">Software Ecosystem</h2>
-  <p>
-    Raspberry Pi OS (Bookworm 64-bit) is optimized for performance and stability.
-    With Debian 12 as its base, it supports Python, C/C++, Node.js, and Rust.
-    You can also run Ubuntu, Manjaro, or lightweight IoT distributions with minimal setup.
-  </p>
+  <p>Raspberry Pi OS (Bookworm 64-bit) is optimized for performance and stability. Supports Python, C/C++, Node.js, Rust, and other languages. Ubuntu, Manjaro, or IoT-specific distributions can also be installed.</p>
   <div class="image-group">
-    <img src="pi2.jpg" alt="">
+    <img src="pi12.jpg" alt="Pi12">
   </div>
 </section>
 
 <!-- PAGE 6 -->
 <section class="section" id="pg6">
   <h2 class="text-animate">Performance and Cooling</h2>
-  <p>
-    With a CPU nearly three times faster than its predecessor, the Pi 5 handles demanding workloads such as VS Code, web browsers,
-    and even light video editing. The official active cooler keeps thermals below 60 °C under heavy load.
-  </p>
+  <p>With CPU speeds nearly three times faster than Pi 4, the Pi 5 handles demanding applications. Official active cooling keeps thermals below 60°C under heavy load.</p>
   <div class="image-group">
-    <img src="pi12.jpg" alt="">
+    <img src="pi11.jpg" alt="Pi11">
+    <img src="pi7.jpeg" alt="Pi7">
   </div>
 </section>
-
 <!-- PAGE 7 -->
 <section class="section" id="pg7">
   <h2 class="text-animate">AI and Automation</h2>
-  <p>
-    The Pi 5’s improved processing power allows TensorFlow Lite and OpenCV to run efficiently on-device.
-    Through GPIO, I²C, and SPI, it connects with sensors, cameras, and motors—making it perfect for robotics and smart automation.
-  </p>
+  <p>The Pi 5’s improved processing power enables TensorFlow Lite and OpenCV to run efficiently on-device. GPIO, I²C, and SPI allow connection to sensors, cameras, and motors for robotics and smart automation projects.</p>
   <div class="image-group">
-    <img src="pi11.jpg" alt="">
-    <img src="pi7.jpeg" alt="">
+    <img src="pi19.jpg" alt="Pi19">
   </div>
 </section>
 
 <!-- PAGE 8 -->
 <section class="section" id="pg8">
   <h2 class="text-animate">Networking and Internet</h2>
-  <p>
-    Networking is managed by the RP1 southbridge, providing stable Gigabit Ethernet and Wi-Fi 5 connectivity.
-    Remote control via SSH and VNC comes pre-enabled, and mDNS allows zero-configuration local access.
-  </p>
+  <p>Networking is handled by the RP1 southbridge, providing stable Gigabit Ethernet and Wi-Fi 5 connectivity. Remote control via SSH and VNC comes pre-enabled, and mDNS allows zero-configuration local access.</p>
   <div class="image-group">
-    <img src="pi19.jpg" alt="">
+    <img src="pi17.png" alt="Pi17">
+    <img src="images.png" alt="Images">
   </div>
 </section>
 
 <!-- PAGE 9 -->
 <section class="section" id="pg9">
   <h2 class="text-animate">Multimedia</h2>
-  <p>
-    Dual 4 K displays with HDR, HEVC decoding, and OpenGL ES 3.1 support make the Pi 5 a compact yet powerful media player.
-    Kodi, Plex, and VLC run effortlessly, turning this small board into a complete entertainment system.
-  </p>
+  <p>Dual 4K displays with HDR, HEVC decoding, and OpenGL ES 3.1 support make the Pi 5 a compact yet powerful media player. Kodi, Plex, and VLC run effortlessly, turning this small board into a complete entertainment system.</p>
   <div class="image-group">
-    <img src="pi17.png" alt="">
-    <img src="images.png" alt="">
+    <img src="pi13.jpg" alt="Pi13">
+    <img src="pi14.jpg" alt="Pi14">
   </div>
 </section>
-
 <!-- PAGE 10 -->
 <section class="section" id="pg10">
   <h2 class="text-animate">Power and Energy Efficiency</h2>
-  <p>
-    The Pi 5 consumes up to 15 W under full load and operates best with a USB-C 5 V / 5 A adapter.
-    Improved power regulation ensures cleaner voltage delivery to peripherals and more stable performance.
-  </p>
+  <p>The Pi 5 consumes up to 15 W under full load and works best with a USB-C 5V/5A adapter. Improved power regulation ensures cleaner voltage delivery to peripherals and stable performance.</p>
   <div class="image-group">
-    <img src="pi13.jpg" alt="">
-    <img src="pi14.jpg" alt="">
+    <img src="pi15.jpg" alt="Pi15">
+    <img src="pi16.jpg" alt="Pi16">
+    <img src="pi18.png" alt="Pi18">
   </div>
 </section>
 
 <!-- PAGE 11 -->
 <section class="section" id="pg11">
   <h2 class="text-animate">Physical Build and Design</h2>
-  <p>
-    The board’s refined layout enhances cable management and airflow.
-    The new power button, RTC header, and better-placed PCIe port make it more user-friendly while retaining the signature 85×56 mm form factor.
-  </p>
+  <p>The refined layout enhances cable management and airflow. New power button, RTC header, and PCIe port make it more user-friendly while retaining the classic 85×56 mm form factor.</p>
   <div class="image-group">
-    <img src="pi15.jpg" alt="">
-    <img src="pi16.jpg" alt="">
-    <img src="pi18.png" alt="">
+    <img src="pi21.jpg" alt="Pi21">
+    <img src="pi20.png" alt="Pi20">
   </div>
 </section>
 
 <!-- PAGE 12 -->
 <section class="section" id="pg12">
   <h2 class="text-animate">Pricing and Conclusion</h2>
-  <p>
-    Retailing around $60 (4 GB) and $80 (8 GB), the Raspberry Pi 5 brings true desktop-class power to makers and professionals alike.
-    Its unmatched combination of performance, flexibility, and price cements its legacy as the go-to single-board computer.
-    <br><br>© 2025 BADMOSH
-  </p>
-  <div class="image-group">
-    <img src="pi21.jpg" alt="">
-    <img src="pi20.png" alt="">
-  </div>
+  <p>Retailing around $60 (4GB) and $80 (8GB), Raspberry Pi 5 brings desktop-class power to makers and professionals. Its unmatched combination of performance, flexibility, and price cements its legacy as the go-to single-board computer.</p>
 </section>
 
 <!-- SCROLL BUTTONS -->
@@ -270,31 +198,37 @@ p {
 <div id="downBtn" class="nav-btn">↓</div>
 
 <script>
-const sections=[...document.querySelectorAll('.section')];
-let current=0;
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>{
-    if(x.isIntersecting)x.target.classList.add('visible');
+const sections = [...document.querySelectorAll('.section')];
+let current = 0;
+
+// Fade-in when visible
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
   });
-},{threshold:0.3});
-sections.forEach(s=>obs.observe(s));
+}, { threshold: 0.3 });
+sections.forEach(s => observer.observe(s));
 
+// Scroll functions
 function scrollToSection(i){
-  if(i<0||i>=sections.length)return;
-  sections[i].scrollIntoView({behavior:'smooth',block:'start'});
-  current=i;
+  if(i < 0 || i >= sections.length) return;
+  sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  current = i;
 }
-document.getElementById('upBtn').addEventListener('click',()=>scrollToSection(current-1));
-document.getElementById('downBtn').addEventListener('click',()=>scrollToSection(current+1));
 
-window.addEventListener('scroll',()=>{
-  const pos=window.scrollY+window.innerHeight/2;
-  sections.forEach((sec,i)=>{
-    const top=sec.offsetTop;
-    const height=sec.offsetHeight;
-    if(pos>top && pos<top+height) current=i;
+document.getElementById('upBtn').addEventListener('click', () => scrollToSection(current-1));
+document.getElementById('downBtn').addEventListener('click', () => scrollToSection(current+1));
+
+// Update current on manual scroll
+window.addEventListener('scroll', () => {
+  const pos = window.scrollY + window.innerHeight/2;
+  sections.forEach((sec, i) => {
+    const top = sec.offsetTop;
+    const height = sec.offsetHeight;
+    if(pos > top && pos < top + height) current = i;
   });
 });
 </script>
+
 </body>
 </html>
