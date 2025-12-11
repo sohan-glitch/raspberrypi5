@@ -1,128 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raspberry Pi 5 | Showcase</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-
-    /* purple gradient background */
-    body {
-      background: linear-gradient(135deg, #a855f7, #7e22ce, #581c87);
-      background-size: 400% 400%;
-      animation: gradient 20s ease infinite;
-      color: black;
-      overflow-x: hidden;
-    }
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* spinning image */
-    .spin {
-      animation: spin 10s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* section transitions */
-    .section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 3rem 1rem;
-      opacity: 0;
-      transform: translateY(60px);
-      transition: all 1s ease;
-    }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(5px);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      width: 260px;
-      color: black;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.05);
-      background: rgba(255, 255, 255, 0.3);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raspberry Pi 5 | Full Showcase</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html { scroll-behavior:smooth; }
+  body {
+    background:linear-gradient(135deg,#0f0f10,#1e1e2f,#111014);
+    background-size:400% 400%;
+    animation:grad 20s ease infinite;
+    color:white;
+    overflow-x:hidden;
+    font-family:'Inter',sans-serif;
+  }
+  @keyframes grad {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  .spin {
+    width:64px;height:64px;
+    animation:spin 10s linear infinite;
+  }
+  @keyframes spin {
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+  }
+  .section {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:4rem 1rem;
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 1s ease;
+  }
+  .visible{opacity:1;transform:translateY(0)}
+  h1,h2{font-weight:800;text-shadow:0 0 25px rgba(255,255,255,0.1)}
+  h1{font-size:5rem}
+  h2{font-size:3rem}
+  p{max-width:800px;margin-top:1rem;color:#ccc;font-size:1.25rem;line-height:1.6}
+  .card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:1rem;
+    padding:1.5rem;
+    width:270px;
+    transition:0.3s;
+  }
+  .card:hover{background:rgba(255,255,255,0.15);transform:scale(1.05)}
+</style>
 </head>
+<body>
 
-<body class="font-sans">
+<!-- Slide 1 -->
+<section class="section" id="intro">
+  <img src="img1.jpg" alt="Pi" class="spin mb-6 rounded-full shadow-lg">
+  <h1>Raspberry Pi 5</h1>
+  <p>The evolution of the tiny computer—reborn with desktop-level power.</p>
+</section>
 
-  <!-- Slide 1 -->
-  <section class="section" id="intro">
-    <img src="img1.jpg" alt="Raspberry Pi" class="w-16 h-16 spin mb-6 rounded-full shadow-lg">
-    <h1 class="text-7xl md:text-8xl font-extrabold mb-3">Raspberry Pi 5</h1>
-    <p class="text-black/70 text-2xl">Smaller, faster, and more powerful than ever.</p>
-  </section>
+<!-- Slide 2 -->
+<section class="section" id="overview">
+  <h2>About Raspberry Pi 5</h2>
+  <p>Released in late 2023, the Raspberry Pi 5 marks a major leap in the series, featuring new architecture, better performance, and enhanced connectivity.</p>
+</section>
 
-  <!-- Slide 2 -->
-  <section class="section" id="specs">
-    <h2 class="text-5xl font-bold mb-8">Specifications</h2>
-    <div class="flex flex-wrap justify-center gap-6">
-      <div class="card">
-        <h3 class="text-2xl mb-2">CPU & GPU</h3>
-        <p>Quad-core 2.4 GHz Cortex-A76<br>VideoCore VII GPU</p>
-      </div>
-      <div class="card">
-        <h3 class="text-2xl mb-2">Memory & I/O</h3>
-        <p>4 GB / 8 GB LPDDR4X<br>Dual 4K HDMI, USB 3.0, PCIe 2.0</p>
-      </div>
-      <div class="card">
-        <h3 class="text-2xl mb-2">Power</h3>
-        <p>USB-C 5 V / 5 A<br>Active cooling recommended</p>
-      </div>
-    </div>
-  </section>
+<!-- Slide 3 -->
+<section class="section" id="processor">
+  <h2>Processor & Graphics</h2>
+  <p>Powered by a Broadcom BCM2712 quad-core ARM Cortex-A76 @ 2.4 GHz and VideoCore VII GPU—up to 3× faster CPU and 2× faster graphics than Pi 4.</p>
+</section>
 
-  <!-- Slide 3 -->
-  <section class="section" id="uses">
-    <h2 class="text-5xl font-bold mb-6">What You Can Build</h2>
-    <p class="max-w-2xl text-xl text-black/80 leading-relaxed">
-      Use the Raspberry Pi 5 to power a home server, retro game console,  
-      AI learning hub, or a tiny workstation that can handle two 4K displays.
-    </p>
-  </section>
+<!-- Slide 4 -->
+<section class="section" id="memory">
+  <h2>Memory Options</h2>
+  <p>Available with 4 GB or 8 GB LPDDR4X RAM, delivering greater bandwidth and efficiency for multitasking and modern workloads.</p>
+</section>
 
-  <!-- Slide 4 -->
-  <section class="section" id="footer">
-    <h2 class="text-4xl font-bold mb-4">Learn More</h2>
-    <a href="https://www.raspberrypi.com/products/raspberry-pi-5/"
-       target="_blank"
-       class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition">
-       Visit Official Site
-    </a>
-    <p class="mt-8 text-sm text-black/60">© 2025 BADMOSH</p>
-  </section>
+<!-- Slide 5 -->
+<section class="section" id="storage">
+  <h2>Storage & Boot</h2>
+  <p>Supports high-speed microSD and NVMe SSD via PCIe 2.0 x1 lane – finally letting you boot from blazing-fast drives.</p>
+</section>
 
-  <script>
-    // reveal sections on scroll
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-      });
-    },{threshold:0.3});
-    document.querySelectorAll('.section').forEach(sec=>observer.observe(sec));
-  </script>
+<!-- Slide 6 -->
+<section class="section" id="connectivity">
+  <h2>Connectivity</h2>
+  <p>Dual 4K HDMI outputs (60 Hz), 2× USB 3.0, 2× USB 2.0, Gigabit Ethernet, and Wi-Fi + Bluetooth 5.0 for seamless networking.</p>
+</section>
 
+<!-- Slide 7 -->
+<section class="section" id="software">
+  <h2>Software Support</h2>
+  <p>Runs Raspberry Pi OS (Bookworm, 64-bit Debian base) with full desktop interface, plus Ubuntu Server, Kali Linux and others.</p>
+</section>
+
+<!-- Slide 8 -->
+<section class="section" id="io">
+  <h2>GPIO & Expansion</h2>
+  <p>40-pin GPIO header compatible with previous Pi boards + PCIe connector for SSD adapters and expansion cards.</p>
+</section>
+
+<!-- Slide 9 -->
+<section class="section" id="cooling">
+  <h2>Cooling & Thermals</h2>
+  <p>Higher power means more heat—active cooling is recommended. Official cooling kit keeps temps below 60 °C under load.</p>
+</section>
+
+<!-- Slide 10 -->
+<section class="section" id="performance">
+  <h2>Performance Leap</h2>
+  <p>Benchmarks show 2–3× speed gain over Pi 4. Can handle Chromium, VS Code, and light AI tasks without lag.</p>
+</section>
+
+<!-- Slide 11 -->
+<section class="section" id="power">
+  <h2>Power Supply</h2>
+  <p>Requires a USB-C 5 V / 5 A adapter to feed the beast while driving dual monitors and USB peripherals.</p>
+</section>
+
+<!-- Slide 12 -->
+<section class="section" id="design">
+  <h2>Build & Design</h2>
+  <p>Maintains the classic credit-card form factor but introduces a new power button and improved board layout for airflow.</p>
+</section>
+
+<!-- Slide 13 -->
+<section class="section" id="internet">
+  <h2>Networking</h2>
+  <p>Gigabit Ethernet through the RP1 chip brings true 1 Gb/s speed. Dual-band Wi-Fi 5 ensures low latency for IoT and media.</p>
+</section>
+
+<!-- Slide 14 -->
+<section class="section" id="media">
+  <h2>Multimedia</h2>
+  <p>Dual 4K display support @ 60 Hz, HEVC video decode, and HDR playback make it a tiny but mighty media center.</p>
+</section>
+
+<!-- Slide 15 -->
+<section class="section" id="usecases">
+  <h2>Use Cases</h2>
+  <p>Perfect for DIY servers, robotics, smart-home projects, education, and retro gaming stations with emulators up to PS2 level.</p>
+</section>
+
+<!-- Slide 16 -->
+<section class="section" id="price">
+  <h2>Pricing</h2>
+  <p>Roughly $60 (4 GB) and $80 (8 GB) – affordable for the power it delivers, though accessories add to total cost.</p>
+</section>
+
+<!-- Slide 17 -->
+<section class="section" id="future">
+  <h2>Community & Future</h2>
+  <p>A massive community drives continuous support and open-source projects that extend the Pi’s life for years ahead.</p>
+</section>
+
+<!-- Slide 18 -->
+<section class="section" id="end">
+  <h2>Conclusion</h2>
+  <p>Raspberry Pi 5 bridges the gap between maker boards and mini-PCs – faster, smarter, still tiny. <br>© 2025 BADMOSH</p>
+</section>
+
+<script>
+  // reveal animation on scroll
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting)e.target.classList.add('visible');
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.section').forEach(sec=>observer.observe(sec));
+</script>
 </body>
 </html>
