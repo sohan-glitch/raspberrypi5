@@ -3,178 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raspberry Pi 5 | Full Showcase</title>
+<title>Raspberry Pi 5 | Complete Showcase</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  html { scroll-behavior:smooth; }
-  body {
-    background:linear-gradient(135deg,#0f0f10,#1e1e2f,#111014);
-    background-size:400% 400%;
-    animation:grad 20s ease infinite;
-    color:white;
-    overflow-x:hidden;
-    font-family:'Inter',sans-serif;
-  }
-  @keyframes grad {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-  }
-  .spin {
-    width:64px;height:64px;
-    animation:spin 10s linear infinite;
-  }
-  @keyframes spin {
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
-  }
-  .section {
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:4rem 1rem;
-    opacity:0;
-    transform:translateY(60px);
-    transition:all 1s ease;
-  }
-  .visible{opacity:1;transform:translateY(0)}
-  h1,h2{font-weight:800;text-shadow:0 0 25px rgba(255,255,255,0.1)}
-  h1{font-size:5rem}
-  h2{font-size:3rem}
-  p{max-width:800px;margin-top:1rem;color:#ccc;font-size:1.25rem;line-height:1.6}
-  .card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:1rem;
-    padding:1.5rem;
-    width:270px;
-    transition:0.3s;
-  }
-  .card:hover{background:rgba(255,255,255,0.15);transform:scale(1.05)}
+html{scroll-behavior:smooth}
+body{
+  background:linear-gradient(135deg,#050505,#0f0f1a,#1a1a28);
+  background-size:400% 400%;
+  animation:bgmove 25s ease infinite;
+  color:#f1f1f1;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+@keyframes bgmove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.spin{width:64px;height:64px;animation:spin 10s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:4rem 1rem;
+  opacity:0;
+  transform:translateY(60px);
+  transition:all 1s ease;
+}
+.visible{opacity:1;transform:translateY(0)}
+h1{font-size:5rem;font-weight:800;color:#fff}
+h2{font-size:3rem;font-weight:700;margin-bottom:1rem;color:#c084fc}
+p{max-width:900px;color:#d1d1d1;font-size:1.1rem;line-height:1.7}
+.grid2{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+  width:90%;
+  max-width:1000px;
+  margin-top:2rem;
+}
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:1rem;
+  padding:1.5rem;
+  transition:0.3s;
+}
+.card:hover{background:rgba(255,255,255,0.15);transform:scale(1.03)}
 </style>
 </head>
+
 <body>
 
-<!-- Slide 1 -->
-<section class="section" id="intro">
+<!-- 1 -->
+<section class="section">
   <img src="img1.jpg" alt="Pi" class="spin mb-6 rounded-full shadow-lg">
   <h1>Raspberry Pi 5</h1>
-  <p>The evolution of the tiny computer—reborn with desktop-level power.</p>
+  <p>The most powerful Raspberry Pi yet — a leap in speed, connectivity, and design.</p>
 </section>
 
-<!-- Slide 2 -->
-<section class="section" id="overview">
-  <h2>About Raspberry Pi 5</h2>
-  <p>Released in late 2023, the Raspberry Pi 5 marks a major leap in the series, featuring new architecture, better performance, and enhanced connectivity.</p>
+<!-- 2 -->
+<section class="section">
+  <h2>About the Pi 5</h2>
+  <p>Launched 2023, Raspberry Pi 5 evolves from its predecessors with a new BCM2712 chipset and RP1 I/O controller for desktop-class performance in maker-scale hardware.</p>
 </section>
 
-<!-- Slide 3 -->
-<section class="section" id="processor">
-  <h2>Processor & Graphics</h2>
-  <p>Powered by a Broadcom BCM2712 quad-core ARM Cortex-A76 @ 2.4 GHz and VideoCore VII GPU—up to 3× faster CPU and 2× faster graphics than Pi 4.</p>
+<!-- 3 -->
+<section class="section">
+  <h2>Hardware Overview</h2>
+  <p>The board packs an ARM Cortex-A76 CPU, new GPU, PCIe connectivity and dual 4K video support while retaining the classic 40-pin GPIO layout.</p>
 </section>
 
-<!-- Slide 4 -->
-<section class="section" id="memory">
-  <h2>Memory Options</h2>
-  <p>Available with 4 GB or 8 GB LPDDR4X RAM, delivering greater bandwidth and efficiency for multitasking and modern workloads.</p>
+<!-- 4 -->
+<section class="section">
+  <h2>CPU & GPU</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3 class="text-xl font-semibold mb-2 text-purple-300">Processor</h3>
+      <p>Broadcom BCM2712 quad-core Cortex-A76 @ 2.4 GHz — up to 3× faster than Pi 4.</p>
+    </div>
+    <div class="card">
+      <h3 class="text-xl font-semibold mb-2 text-purple-300">Graphics</h3>
+      <p>VideoCore VII GPU supports dual 4K 60 Hz output and HEVC hardware decoding.</p>
+    </div>
+  </div>
 </section>
 
-<!-- Slide 5 -->
-<section class="section" id="storage">
-  <h2>Storage & Boot</h2>
-  <p>Supports high-speed microSD and NVMe SSD via PCIe 2.0 x1 lane – finally letting you boot from blazing-fast drives.</p>
+<!-- 5 -->
+<section class="section">
+  <h2>Memory & Storage</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3 class="text-xl font-semibold mb-2 text-purple-300">RAM</h3>
+      <p>4 GB or 8 GB LPDDR4X — higher bandwidth for multitasking and server workloads.</p>
+    </div>
+    <div class="card">
+      <h3 class="text-xl font-semibold mb-2 text-purple-300">Storage</h3>
+      <p>microSD slot plus NVMe SSD support through PCIe 2.0 x1 lane for fast boot and data transfer.</p>
+    </div>
+  </div>
 </section>
 
-<!-- Slide 6 -->
-<section class="section" id="connectivity">
-  <h2>Connectivity</h2>
-  <p>Dual 4K HDMI outputs (60 Hz), 2× USB 3.0, 2× USB 2.0, Gigabit Ethernet, and Wi-Fi + Bluetooth 5.0 for seamless networking.</p>
+<!-- 6 -->
+<section class="section">
+  <h2>Connectivity & Ports</h2>
+  <div class="grid2">
+    <div class="card"><p>2 × HDMI 2.0 (4K 60 Hz)</p></div>
+    <div class="card"><p>2 × USB 3.0 + 2 × USB 2.0</p></div>
+    <div class="card"><p>Gigabit Ethernet via RP1 chip</p></div>
+    <div class="card"><p>Dual-band Wi-Fi 5 + Bluetooth 5.0</p></div>
+    <div class="card"><p>PCIe FPC connector for SSD adapter</p></div>
+    <div class="card"><p>GPIO 40-pin header (backward compatible)</p></div>
+  </div>
 </section>
 
-<!-- Slide 7 -->
-<section class="section" id="software">
-  <h2>Software Support</h2>
-  <p>Runs Raspberry Pi OS (Bookworm, 64-bit Debian base) with full desktop interface, plus Ubuntu Server, Kali Linux and others.</p>
+<!-- 7 -->
+<section class="section">
+  <h2>Cooling & Power</h2>
+  <p>With increased performance comes heat: official active cooler and USB-C 5 V / 5 A supply recommended for stable operation under load.</p>
 </section>
 
-<!-- Slide 8 -->
-<section class="section" id="io">
-  <h2>GPIO & Expansion</h2>
-  <p>40-pin GPIO header compatible with previous Pi boards + PCIe connector for SSD adapters and expansion cards.</p>
+<!-- 8 -->
+<section class="section">
+  <h2>Physical Build</h2>
+  <p>Classic form factor retained (85×56 mm), but layout optimized for airflow and PCIe access. New on-board power button and RTC header included.</p>
 </section>
 
-<!-- Slide 9 -->
-<section class="section" id="cooling">
-  <h2>Cooling & Thermals</h2>
-  <p>Higher power means more heat—active cooling is recommended. Official cooling kit keeps temps below 60 °C under load.</p>
+<!-- 9 -->
+<section class="section">
+  <h2>Performance Benchmarks</h2>
+  <p>Up to 3× CPU gain and double GPU speed over Pi 4. Real-world apps like Chromium, VS Code and Python compile smoothly with no throttling under cooling.</p>
 </section>
 
-<!-- Slide 10 -->
-<section class="section" id="performance">
-  <h2>Performance Leap</h2>
-  <p>Benchmarks show 2–3× speed gain over Pi 4. Can handle Chromium, VS Code, and light AI tasks without lag.</p>
+<!-- 10 -->
+<section class="section">
+  <h2>Software Ecosystem</h2>
+  <p>Official Raspberry Pi OS (Bookworm 64-bit) provides desktop environment and Linux terminal power. Supports Ubuntu, Debian, Manjaro and other distros.</p>
 </section>
 
-<!-- Slide 11 -->
-<section class="section" id="power">
-  <h2>Power Supply</h2>
-  <p>Requires a USB-C 5 V / 5 A adapter to feed the beast while driving dual monitors and USB peripherals.</p>
+<!-- 11 -->
+<section class="section">
+  <h2>Development Tools</h2>
+  <p>Includes Python 3, C/C++, Node.js, and Rust support. Compatible with VS Code and Thonny IDE for beginner to advanced projects.</p>
 </section>
 
-<!-- Slide 12 -->
-<section class="section" id="design">
-  <h2>Build & Design</h2>
-  <p>Maintains the classic credit-card form factor but introduces a new power button and improved board layout for airflow.</p>
+<!-- 12 -->
+<section class="section">
+  <h2>Networking Software</h2>
+  <p>Pre-installed network manager for Wi-Fi and Ethernet, mDNS for local name resolution, and SSH/VNC for remote access out of the box.</p>
 </section>
 
-<!-- Slide 13 -->
-<section class="section" id="internet">
-  <h2>Networking</h2>
-  <p>Gigabit Ethernet through the RP1 chip brings true 1 Gb/s speed. Dual-band Wi-Fi 5 ensures low latency for IoT and media.</p>
+<!-- 13 -->
+<section class="section">
+  <h2>Multimedia & Graphics Software</h2>
+  <p>Hardware-accelerated OpenGL ES 3.1 drivers, dual display management, and Kodi support for media centers running 4K HDR streams.</p>
 </section>
 
-<!-- Slide 14 -->
-<section class="section" id="media">
-  <h2>Multimedia</h2>
-  <p>Dual 4K display support @ 60 Hz, HEVC video decode, and HDR playback make it a tiny but mighty media center.</p>
+<!-- 14 -->
+<section class="section">
+  <h2>AI & Machine Learning</h2>
+  <p>TensorFlow Lite and OpenCV run efficiently on Pi 5, using the CPU and GPU for basic image classification and robotics applications.</p>
 </section>
 
-<!-- Slide 15 -->
-<section class="section" id="usecases">
+<!-- 15 -->
+<section class="section">
+  <h2>IoT & Automation</h2>
+  <p>GPIO pins, I²C, SPI, and UART interfaces integrate sensors and actuators. Node-RED and Home Assistant turn the board into a smart-home brain.</p>
+</section>
+
+<!-- 16 -->
+<section class="section">
   <h2>Use Cases</h2>
-  <p>Perfect for DIY servers, robotics, smart-home projects, education, and retro gaming stations with emulators up to PS2 level.</p>
+  <p>From personal cloud servers and retro gaming stations to robotics controllers and AI edge devices — Pi 5 scales with your imagination.</p>
 </section>
 
-<!-- Slide 16 -->
-<section class="section" id="price">
-  <h2>Pricing</h2>
-  <p>Roughly $60 (4 GB) and $80 (8 GB) – affordable for the power it delivers, though accessories add to total cost.</p>
+<!-- 17 -->
+<section class="section">
+  <h2>Price & Value</h2>
+  <p>Starting ≈ $60 (4 GB) and $80 (8 GB). Even with cooler and SSD extras, it’s a fraction of mini-PC costs for similar performance.</p>
 </section>
 
-<!-- Slide 17 -->
-<section class="section" id="future">
-  <h2>Community & Future</h2>
-  <p>A massive community drives continuous support and open-source projects that extend the Pi’s life for years ahead.</p>
-</section>
-
-<!-- Slide 18 -->
-<section class="section" id="end">
+<!-- 18 -->
+<section class="section">
   <h2>Conclusion</h2>
-  <p>Raspberry Pi 5 bridges the gap between maker boards and mini-PCs – faster, smarter, still tiny. <br>© 2025 BADMOSH</p>
+  <p>Raspberry Pi 5 blurs the line between hobby hardware and desktop computing — powerful, affordable, and open. <br>© 2025 BADMOSH</p>
 </section>
 
 <script>
-  // reveal animation on scroll
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting)e.target.classList.add('visible');
-    });
-  },{threshold:0.3});
-  document.querySelectorAll('.section').forEach(sec=>observer.observe(sec));
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})
+},{threshold:0.3});
+document.querySelectorAll('.section').forEach(s=>obs.observe(s));
 </script>
+
 </body>
 </html>
