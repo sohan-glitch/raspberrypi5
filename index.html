@@ -55,12 +55,15 @@ p { max-width:1000px; text-align:justify; font-size:1.3rem; color:#dcdcdc; line-
   display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-top:2.5rem;
 }
 .image-group img {
-  border-radius:10px;
-  box-shadow:0 0 25px rgba(0,102,255,0.4);
-  animation:floaty 6s ease-in-out infinite alternate;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,102,255,0.4);
+  animation: floaty 6s ease-in-out infinite alternate;
   transition: transform 0.5s ease;
-  height:auto; max-width:100%;
+  height: auto;
+  max-width: 8cm;  /* limits width */
+  max-height: 8cm; /* limits height */
 }
+
 @keyframes floaty { from{transform:translateY(0px)} to{transform:translateY(-12px)} }
 .image-group img:hover{ transform:scale(1.02); }
 
