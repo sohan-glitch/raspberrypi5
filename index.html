@@ -3,35 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raspberry Pi 5 Showcase</title>
+  <title>Raspberry Pi 5 | Showcase</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
 
-    /* background animation */
+    /* purple gradient background */
     body {
-      background: linear-gradient(-45deg,#9333ea,#3b82f6,#14b8a6,#ef4444);
+      background: linear-gradient(135deg, #a855f7, #7e22ce, #581c87);
       background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-      color: white;
+      animation: gradient 20s ease infinite;
+      color: black;
       overflow-x: hidden;
     }
     @keyframes gradient {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* spinning image */
     .spin {
-      animation: spin 8s linear infinite;
+      animation: spin 10s linear infinite;
     }
     @keyframes spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
 
-    /* fade/slide for sections */
+    /* section transitions */
     .section {
       min-height: 100vh;
       display: flex;
@@ -50,14 +50,19 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
       border-radius: 1rem;
       padding: 1.5rem;
       width: 260px;
+      color: black;
+      font-weight: 600;
       transition: 0.3s;
     }
-    .card:hover { background: rgba(255,255,255,0.2); transform: scale(1.05); }
+    .card:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.3);
+    }
   </style>
 </head>
 
@@ -65,48 +70,48 @@
 
   <!-- Slide 1 -->
   <section class="section" id="intro">
-    <img src="img1.jpg" alt="Pi Logo" class="w-24 h-24 spin mb-6 rounded-full shadow-lg">
-    <h1 class="text-6xl font-extrabold mb-2">Raspberry Pi 5</h1>
-    <p class="text-white/80 text-lg">The tiny computer that packs a serious punch.</p>
+    <img src="img1.jpg" alt="Raspberry Pi" class="w-16 h-16 spin mb-6 rounded-full shadow-lg">
+    <h1 class="text-7xl md:text-8xl font-extrabold mb-3">Raspberry Pi 5</h1>
+    <p class="text-black/70 text-2xl">Smaller, faster, and more powerful than ever.</p>
   </section>
 
   <!-- Slide 2 -->
   <section class="section" id="specs">
-    <h2 class="text-4xl font-bold mb-8">⚙️ Specifications</h2>
+    <h2 class="text-5xl font-bold mb-8">Specifications</h2>
     <div class="flex flex-wrap justify-center gap-6">
       <div class="card">
-        <h3 class="text-xl font-semibold mb-2">CPU & GPU</h3>
-        <p>Quad-core Cortex-A76 @ 2.4 GHz<br>VideoCore VII GPU</p>
+        <h3 class="text-2xl mb-2">CPU & GPU</h3>
+        <p>Quad-core 2.4 GHz Cortex-A76<br>VideoCore VII GPU</p>
       </div>
       <div class="card">
-        <h3 class="text-xl font-semibold mb-2">Memory & I/O</h3>
+        <h3 class="text-2xl mb-2">Memory & I/O</h3>
         <p>4 GB / 8 GB LPDDR4X<br>Dual 4K HDMI, USB 3.0, PCIe 2.0</p>
       </div>
       <div class="card">
-        <h3 class="text-xl font-semibold mb-2">Power</h3>
-        <p>USB-C 5 V 5 A<br>Active cooling recommended</p>
+        <h3 class="text-2xl mb-2">Power</h3>
+        <p>USB-C 5 V / 5 A<br>Active cooling recommended</p>
       </div>
     </div>
   </section>
 
   <!-- Slide 3 -->
   <section class="section" id="uses">
-    <h2 class="text-4xl font-bold mb-8">💡 What You Can Build</h2>
-    <p class="max-w-xl text-white/80 text-lg leading-relaxed">
-      Turn your Pi 5 into a blazing-fast home server, retro gaming console, AI playground, or a
-      dual-display workstation that fits in your pocket.
+    <h2 class="text-5xl font-bold mb-6">What You Can Build</h2>
+    <p class="max-w-2xl text-xl text-black/80 leading-relaxed">
+      Use the Raspberry Pi 5 to power a home server, retro game console,  
+      AI learning hub, or a tiny workstation that can handle two 4K displays.
     </p>
   </section>
 
   <!-- Slide 4 -->
   <section class="section" id="footer">
-    <h2 class="text-3xl font-semibold mb-4">Ready to Explore?</h2>
+    <h2 class="text-4xl font-bold mb-4">Learn More</h2>
     <a href="https://www.raspberrypi.com/products/raspberry-pi-5/"
        target="_blank"
-       class="bg-white/10 border border-white/30 px-8 py-3 rounded-lg hover:bg-white/20 transition">
-       Learn More
+       class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition">
+       Visit Official Site
     </a>
-    <p class="mt-8 text-sm text-white/60">© 2025 BADMOSH</p>
+    <p class="mt-8 text-sm text-black/60">© 2025 BADMOSH</p>
   </section>
 
   <script>
