@@ -1,111 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raspberry Pi 5 | The Next Gen Pi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raspberry Pi 5 Showcase</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Animated gradient background */
+    html { scroll-behavior: smooth; }
+
+    /* background animation */
     body {
       background: linear-gradient(-45deg,#9333ea,#3b82f6,#14b8a6,#ef4444);
       background-size: 400% 400%;
       animation: gradient 15s ease infinite;
+      color: white;
+      overflow-x: hidden;
     }
     @keyframes gradient {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
-    /* Floating chips animation */
-    .chip {
-      position: absolute;
-      width: 120px;
-      opacity: 0.15;
-      animation: float 10s ease-in-out infinite alternate;
+    /* spinning image */
+    .spin {
+      animation: spin 8s linear infinite;
     }
-    .chip:nth-child(1){top:10%;left:5%;animation-delay:0s;}
-    .chip:nth-child(2){bottom:15%;right:10%;animation-delay:3s;}
-    @keyframes float {
-      from {transform:translateY(0) rotate(0deg);}
-      to {transform:translateY(-40px) rotate(20deg);}
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
-    /* Fade-in + slide-up */
-    .fade-in {
-      opacity:0;
-      transform:translateY(40px);
-      animation: fadeUp 1.3s ease forwards;
+    /* fade/slide for sections */
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1rem;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s ease;
     }
-    @keyframes fadeUp {
-      to {opacity:1;transform:translateY(0);}
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Glow hover for buttons */
-    .glow:hover {
-      box-shadow:0 0 25px rgba(255,255,255,0.4);
-      transform:scale(1.05);
+    .card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      width: 260px;
+      transition: 0.3s;
     }
+    .card:hover { background: rgba(255,255,255,0.2); transform: scale(1.05); }
   </style>
 </head>
 
-<body class="text-white font-sans overflow-hidden min-h-screen flex flex-col items-center justify-center text-center relative">
+<body class="font-sans">
 
-  <!-- floating background images -->
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Raspberry_Pi_Logo.svg" class="chip" />
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Raspberry_Pi_Logo.svg" class="chip" />
+  <!-- Slide 1 -->
+  <section class="section" id="intro">
+    <img src="img1.jpg" alt="Pi Logo" class="w-24 h-24 spin mb-6 rounded-full shadow-lg">
+    <h1 class="text-6xl font-extrabold mb-2">Raspberry Pi 5</h1>
+    <p class="text-white/80 text-lg">The tiny computer that packs a serious punch.</p>
+  </section>
 
-  <main class="z-10 px-6 fade-in">
-    <h1 class="text-6xl md:text-7xl font-extrabold mb-4 drop-shadow-lg">
-      Raspberry Pi 5
-    </h1>
-    <p class="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto">
-      Smaller. Faster. Smarter.<br />
-      The pocket-sized powerhouse built for makers, coders & dreamers.
-    </p>
-
-    <div class="mt-10 flex flex-wrap justify-center gap-6">
-      <div class="bg-white/10 rounded-xl p-6 w-64 hover:bg-white/20 transition glow">
-        <h2 class="text-2xl font-bold mb-2">⚙️ Specs</h2>
-        <p class="text-sm text-white/70">
-          Quad-core 2.4 GHz A76 CPU<br/>
-          VideoCore VII GPU<br/>
-          4 GB / 8 GB LPDDR4X RAM<br/>
-          Dual 4K HDMI, PCIe 2.0, USB-C Power
-        </p>
+  <!-- Slide 2 -->
+  <section class="section" id="specs">
+    <h2 class="text-4xl font-bold mb-8">⚙️ Specifications</h2>
+    <div class="flex flex-wrap justify-center gap-6">
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-2">CPU & GPU</h3>
+        <p>Quad-core Cortex-A76 @ 2.4 GHz<br>VideoCore VII GPU</p>
       </div>
-
-      <div class="bg-white/10 rounded-xl p-6 w-64 hover:bg-white/20 transition glow">
-        <h2 class="text-2xl font-bold mb-2">🔥 Power</h2>
-        <p class="text-sm text-white/70">
-          3× faster than Pi 4<br/>
-          NVMe SSD support for speed<br/>
-          Active cooling recommended for max performance
-        </p>
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-2">Memory & I/O</h3>
+        <p>4 GB / 8 GB LPDDR4X<br>Dual 4K HDMI, USB 3.0, PCIe 2.0</p>
       </div>
-
-      <div class="bg-white/10 rounded-xl p-6 w-64 hover:bg-white/20 transition glow">
-        <h2 class="text-2xl font-bold mb-2">💡 Uses</h2>
-        <p class="text-sm text-white/70">
-          DIY AI projects<br/>
-          Home server & NAS<br/>
-          Retro gaming<br/>
-          Dual-display media hub
-        </p>
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-2">Power</h3>
+        <p>USB-C 5 V 5 A<br>Active cooling recommended</p>
       </div>
     </div>
+  </section>
 
+  <!-- Slide 3 -->
+  <section class="section" id="uses">
+    <h2 class="text-4xl font-bold mb-8">💡 What You Can Build</h2>
+    <p class="max-w-xl text-white/80 text-lg leading-relaxed">
+      Turn your Pi 5 into a blazing-fast home server, retro gaming console, AI playground, or a
+      dual-display workstation that fits in your pocket.
+    </p>
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="section" id="footer">
+    <h2 class="text-3xl font-semibold mb-4">Ready to Explore?</h2>
     <a href="https://www.raspberrypi.com/products/raspberry-pi-5/"
        target="_blank"
-       class="mt-10 inline-block bg-white/10 border border-white/30 px-8 py-3 rounded-lg glow transition">
+       class="bg-white/10 border border-white/30 px-8 py-3 rounded-lg hover:bg-white/20 transition">
        Learn More
     </a>
-  </main>
+    <p class="mt-8 text-sm text-white/60">© 2025 BADMOSH</p>
+  </section>
 
-  <footer class="absolute bottom-4 text-white/60 text-sm">
-    © 2025 BADMOSH | Made with ⚡ for Raspberry Pi fans
-  </footer>
+  <script>
+    // reveal sections on scroll
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+      });
+    },{threshold:0.3});
+    document.querySelectorAll('.section').forEach(sec=>observer.observe(sec));
+  </script>
 
 </body>
 </html>
