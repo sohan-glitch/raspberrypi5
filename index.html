@@ -5,12 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Raspberry Pi 5 | Showcase</title>
 <script src="https://cdn.tailwindcss.com"></script>
-
 <style>
-
-/* Smooth, non-snappy scrolling */
-html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
-
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 body {
   background: linear-gradient(135deg, #050505, #10101b, #1a1a28);
   background-size: 400% 400%;
@@ -19,37 +15,18 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
+@keyframes bgmove { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
 
-@keyframes bgmove {
-  0% { background-position:0% 50% }
-  50% { background-position:100% 50% }
-  100% { background-position:0% 50% }
+.text-animate {
+  background: linear-gradient(90deg,#2563eb,#1e3a8a,#2563eb);
+  background-size:300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:textcolor 10s ease infinite;
+  text-shadow:0 0 25px rgba(37,99,235,0.3),0 0 45px rgba(30,58,138,0.3);
 }
+@keyframes textcolor { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
 
-/* --- HEADING STYLE --- */
-h2 {
-  font-size: 3.4rem;
-  font-weight: 900;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-  text-shadow: 0 0 20px rgba(37,99,235,0.5);
-  letter-spacing: 1px;
-  position: relative;
-  padding-bottom: 12px;
-  margin-top: 1rem;
-}
-h2::after {
-  content: "";
-  width: 180px;
-  height: 4px;
-  background: linear-gradient(90deg, #2563eb, #1e3a8a);
-  display: block;
-  margin: 0.5rem auto 0;
-  border-radius: 10px;
-}
-
-/* --- SECTION ANIMATION WRAPPER --- */
 .section {
   scroll-snap-align:start;
   min-height:100vh;
@@ -64,39 +41,37 @@ h2::after {
 }
 .visible { opacity:1; transform:translateY(0); }
 
-/* --- TEXT + IMAGE ROWS --- */
+h2 {
+  position:sticky;
+  top:1rem;
+  z-index:10;
+  font-size:3rem;
+  font-weight:900;
+  margin-bottom:2rem;
+  text-align:center;
+}
+p { max-width:1000px; text-align:justify; font-size:1.2rem; color:#dcdcdc; line-height:1.8; }
+
 .row {
   display:flex;
-  gap:2.5rem;
-  max-width:1200px;
-  margin-top:2.5rem;
   align-items:center;
+  justify-content:center;
+  gap:2rem;
+  margin:2rem 0;
+  flex-wrap:wrap;
 }
 .row.reverse { flex-direction:row-reverse; }
 
-/* IMAGE STYLE */
 .row img {
-  width:45%;
-  border-radius:14px;
-  box-shadow:0 0 25px rgba(0,102,255,0.4);
-  transition:0.4s;
+  border-radius:10px;
+  box-shadow: 0 0 25px rgba(0,102,255,0.4);
+  transition: transform 0.5s ease;
+  height:auto;
+  max-width:8cm;
+  max-height:8cm;
 }
-.row img:hover { transform:scale(1.03); }
+.row img:hover { transform:scale(1.02); }
 
-/* TEXT STYLE */
-.row p {
-  width:55%;
-  font-size:1.22rem;
-  line-height:1.75;
-  text-align:justify;
-  color:#dfe1f0;
-  background:rgba(255,255,255,0.04);
-  padding:1.3rem 1.5rem;
-  border-left:4px solid #2563eb;
-  border-radius:6px;
-}
-
-/* NAV BUTTONS */
 .nav-btn {
   position:fixed; right:25px; background:rgba(255,255,255,0.08);
   border:1px solid rgba(255,255,255,0.25);
@@ -104,275 +79,184 @@ h2::after {
   font-size:1.5rem; display:flex; justify-content:center; align-items:center;
   cursor:pointer; transition:0.3s; z-index:1000;
 }
-.nav-btn:hover { background:rgba(255,255,255,0.25); }
-#upBtn { bottom:90px; } 
-#downBtn { bottom:30px; }
-
+.nav-btn:hover{ background:rgba(255,255,255,0.25); }
+#upBtn{ bottom:90px; } #downBtn{ bottom:30px; }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<section class="section">
-  <h2>Raspberry Pi 5</h2>
+<!-- INTRO -->
+<section class="section" id="intro">
+  <h2 class="text-animate">Introduction</h2>
 
   <div class="row">
-    <img src="pi1.jpg">
-    <p>
-      The Raspberry Pi 5 delivers a major performance boost, offering a faster CPU, stronger GPU, and smoother overall operation. 
-      It feels far more responsive than earlier models, making it suitable for everyday computing, programming, and creative projects.
-    </p>
+    <img src="3.jpg" alt="Whole Raspberry Pi">
+    <p>The Raspberry Pi 5 brings desktop-grade performance to a compact board.  
+    It features powerful hardware, modern connectivity, and flexibility for a wide range of projects, from learning to professional applications.</p>
   </div>
 
   <div class="row reverse">
-    <img src="pi6.jpg">
-    <p>
-      With its redesigned board layout and stronger power delivery, the Pi 5 handles demanding tasks more efficiently. 
-      Its expanded connectivity and stability ensure a reliable platform for advanced builds of all kinds.
-    </p>
+    <img src="1.jpg" alt="RAM">
+    <p>Available with 4GB or 8GB LPDDR4X RAM, the Pi 5 supports faster memory access and multitasking, ideal for demanding software and multitasking applications.</p>
   </div>
-</section>
-
-<!-- PAGE 2 -->
-<section class="section">
-  <h2>Hardware Overview</h2>
 
   <div class="row">
-    <img src="pi4.jpg">
-    <p>
-      Powered by a 2.4GHz quad-core Cortex-A76 CPU, the Pi 5 delivers excellent processing performance. 
-      The updated VideoCore VII GPU enables smooth graphics, dual 4K60 output, and responsive user interaction.
-    </p>
+    <img src="6.jpg" alt="NVMe SSD">
+    <p>NVMe SSD support via PCIe 2.0 allows ultra-fast storage options, complementing microSD for quick testing and flexibility in storage setups.</p>
   </div>
 
   <div class="row reverse">
-    <img src="pi8.jpg">
-    <p>
-      The RP1 southbridge brings faster USB, improved networking, and better display handling. 
-      This unified chipset greatly improves data flow and contributes to the board’s overall speed.
-    </p>
+    <img src="8.jpg" alt="Ports closeup">
+    <p>Connectivity includes USB 3.0 and 2.0, Gigabit Ethernet, dual HDMI, and a PCIe port for expansion. Users can easily connect displays, storage, and peripherals.</p>
   </div>
-</section>
-
-<!-- PAGE 3 -->
-<section class="section">
-  <h2>Memory & Storage</h2>
 
   <div class="row">
-    <img src="pi9.png">
-    <p>
-      Available with 4GB or 8GB of RAM, the Pi 5 supports smooth multitasking and more complex applications. 
-      Programs load faster, and the device handles larger workloads without slowdowns.
-    </p>
+    <img src="4.jpg" alt="Ethernet port">
+    <p>Ethernet and Wi-Fi 5 provide reliable network access for remote work, IoT, and home automation projects.</p>
   </div>
 
   <div class="row reverse">
-    <img src="pi10.jpg">
-    <p>
-      The addition of PCIe support allows NVMe SSDs for high-speed storage. 
-      This dramatically improves boot times and makes the Pi 5 feel more like a traditional computer.
-    </p>
+    <img src="18.jpg" alt="OpenGL logo">
+    <p>Multimedia support with dual 4K displays, HDR, and OpenGL 3.1 makes the Pi 5 capable of media playback, gaming, and graphical applications.</p>
   </div>
-</section>
-
-<!-- PAGE 4 -->
-<section class="section">
-  <h2>Connectivity</h2>
 
   <div class="row">
-    <img src="pi2.jpg">
-    <p>
-      Dual HDMI 2.0 ports allow two 4K displays, ideal for multitasking or media playback. 
-      Four USB ports support peripherals like drives, controllers, and cameras.
-    </p>
+    <img src="14.jpg" alt="Audio attachment">
+    <p>Audio output options allow for media projects, sound systems, or voice-enabled applications with clarity and flexibility.</p>
   </div>
 
   <div class="row reverse">
-    <img src="pi2.jpg">
-    <p>
-      Fast gigabit Ethernet, Wi-Fi 5, and Bluetooth 5 provide flexible networking options. 
-      The new PCIe connector enables advanced expansion modules and accessories.
-    </p>
+    <img src="15.jpg" alt="Python logo">
+    <p>AI and automation capabilities are enhanced with TensorFlow Lite, OpenCV, and GPIO interfaces, enabling robotics, home automation, and machine learning projects.</p>
+  </div>
+
+  <div class="row">
+    <img src="16.jpg" alt="C++ logo">
+    <p>Programming in Python, C/C++, Rust, and other languages is fully supported, making the Pi 5 a versatile platform for learning and professional development.</p>
   </div>
 </section>
 
-<!-- PAGE 5 -->
-<section class="section">
-  <h2>Cooling System</h2>
+<!-- SOFTWARE OVERVIEW -->
+<section class="section" id="software">
+  <h2 class="text-animate">Software Overview</h2>
 
   <div class="row">
-    <img src="cool1.jpg">
-    <p>
-      The Raspberry Pi 5 generates more heat due to its higher performance, making cooling more important. 
-      Optional active coolers ensure stable performance during heavy use.
-    </p>
+    <img src="9.jpg" alt="Ubuntu logo">
+    <p>Raspberry Pi OS (Bookworm 64-bit) is optimized for stability and performance. The Pi 5 also runs Ubuntu, Manjaro, and other Linux distributions with ease.</p>
   </div>
 
   <div class="row reverse">
-    <img src="cool2.jpg">
-    <p>
-      Improved heatsinks and fan modules attach easily and maintain safe temperatures. 
-      These cooling upgrades allow the Pi 5 to sustain peak speeds for long periods.
-    </p>
+    <img src="10.jpg" alt="Linux logo">
+    <p>Developers can use a variety of programming languages, IDEs, and tools. Compatibility with modern software ensures projects run smoothly and efficiently.</p>
+  </div>
+
+  <div class="row">
+    <img src="images.png" alt="VNC logo">
+    <p>Remote access tools like VNC and SSH allow users to control their Pi devices from anywhere, making development, monitoring, and administration seamless.</p>
   </div>
 </section>
 
-<!-- PAGE 6 -->
-<section class="section">
-  <h2>Software Performance</h2>
+<!-- HARDWARE OVERVIEW -->
+<section class="section" id="hardware">
+  <h2 class="text-animate">Hardware Overview</h2>
 
   <div class="row">
-    <img src="soft1.jpg">
-    <p>
-      Raspberry Pi OS runs smoother and faster on the Pi 5 thanks to the upgraded hardware. 
-      Applications launch quickly, and multitasking feels more fluid.
-    </p>
+    <img src="2.jpg" alt="Processor">
+    <p>The Broadcom BCM2712 quad-core ARM Cortex-A76 CPU and VideoCore VII GPU deliver desktop-class performance, powering demanding applications and graphics processing.</p>
   </div>
 
   <div class="row reverse">
-    <img src="soft2.jpg">
-    <p>
-      Programming tools, emulators, and development environments benefit greatly from the extra power. 
-      This makes the Pi 5 ideal for education and software development.
-    </p>
+    <img src="7.jpg" alt="Ports overview">
+    <p>All essential ports, including USB, HDMI, Ethernet, and PCIe, are easily accessible and organized for efficient connectivity and expansion.</p>
   </div>
-</section>
-
-<!-- PAGE 7 -->
-<section class="section">
-  <h2>Accessories</h2>
 
   <div class="row">
-    <img src="acc1.jpg">
-    <p>
-      A wide range of official accessories is available, including cases, power supplies, coolers, and cameras. 
-      These add-ons extend the Pi’s capabilities.
-    </p>
+    <img src="11.jpg" alt="Cooling attachment">
+    <p>Active cooling attachments and heatsinks ensure the board maintains optimal temperatures under heavy workloads, preventing throttling.</p>
   </div>
 
   <div class="row reverse">
-    <img src="acc2.jpg">
-    <p>
-      Third-party accessories offer even more options, from touchscreens to robotics kits. 
-      This large ecosystem lets users build highly customized systems.
-    </p>
+    <img src="12.jpg" alt="Size comparison">
+    <p>The Pi 5 remains compact, comparable in size to a credit card, while integrating significantly more powerful hardware and features.</p>
   </div>
-</section>
-
-<!-- PAGE 8 -->
-<section class="section">
-  <h2>Camera & Display</h2>
 
   <div class="row">
-    <img src="cam1.jpg">
-    <p>
-      The Pi 5 introduces new camera and display connectors that support higher-quality image streams. 
-      This improves performance for photography and video projects.
-    </p>
+    <img src="13.jpg" alt="Display attachment">
+    <p>Display attachments enable dual-monitor setups for dashboards, kiosks, or media applications, enhancing productivity and visual experiences.</p>
   </div>
 
   <div class="row reverse">
-    <img src="cam2.jpg">
-    <p>
-      Updated drivers and hardware support allow multiple displays and modern sensors. 
-      It’s now easier to build advanced camera systems and dashboards.
-    </p>
+    <img src="14.jpg" alt="Audio attachment">
+    <p>Audio HATs and attachments expand sound capabilities, supporting multimedia, music projects, and interactive applications.</p>
   </div>
-</section>
-
-<!-- PAGE 9 -->
-<section class="section">
-  <h2>Use Cases</h2>
 
   <div class="row">
-    <img src="use1.jpg">
-    <p>
-      The Pi 5 works well as a desktop replacement for web browsing, coding, or managing files. 
-      It feels more responsive thanks to its improved hardware.
-    </p>
+    <img src="20.jpg" alt="Power graph">
+    <p>Power management ensures stable 5V/5A USB-C supply, efficient energy consumption, and long-term device reliability.</p>
   </div>
 
   <div class="row reverse">
-    <img src="use2.jpg">
-    <p>
-      It also excels in robotics, servers, and smart-home projects, offering the speed needed for automation and real-time tasks.
-    </p>
+    <img src="21.jpg" alt="Price graph">
+    <p>Despite the performance increase, the Pi 5 remains affordable, providing excellent value for makers, educators, and professionals.</p>
+  </div>
+
+  <div class="row">
+    <img src="17.jpg" alt="WiFi logo">
+    <p>Networking and security features include Wi-Fi 5, Gigabit Ethernet, and secure boot options for safe, connected operation.</p>
   </div>
 </section>
 
-<!-- PAGE 10 -->
-<section class="section">
-  <h2>Power Management</h2>
+<!-- CONCLUSION -->
+<section class="section" id="conclusion">
+  <h2 class="text-animate">Conclusion</h2>
 
   <div class="row">
-    <img src="power1.jpg">
-    <p>
-      The Pi 5 requires a bit more power but offers better stability and performance under heavy workloads. 
-      Its power system is designed for reliability.
-    </p>
+    <img src="22.jpg" alt="Schematics diagram">
+    <p>The Raspberry Pi 5 sets a new standard in single-board computing with its modern hardware, versatile connectivity, and exceptional performance.</p>
   </div>
 
   <div class="row reverse">
-    <img src="power2.jpg">
-    <p>
-      Additional safety features protect against voltage drops and overheating, ensuring dependable operation over time.
-    </p>
+    <img src="3.jpg" alt="Whole Raspberry Pi">
+    <p>Whether for learning, development, automation, or media projects, the Pi 5 offers flexibility and power at an accessible price, continuing the legacy of innovation.</p>
   </div>
 </section>
 
-<!-- PAGE 11 -->
-<section class="section">
-  <h2>Security</h2>
-
-  <div class="row">
-    <img src="sec1.jpg">
-    <p>
-      The Pi 5 includes updated firmware and security improvements that protect user data and connected devices. 
-      Firmware updates install easily and safely.
-    </p>
-  </div>
-
-  <div class="row reverse">
-    <img src="sec2.jpg">
-    <p>
-      With hardware-based protection and frequent OS updates, the board maintains strong long-term security. 
-      It is suitable for both hobby and professional environments.
-    </p>
-  </div>
-</section>
-
-<!-- PAGE 12 -->
-<section class="section">
-  <h2>Conclusion</h2>
-
-  <div class="row">
-    <img src="pi11.jpg">
-    <p>
-      The Raspberry Pi 5 is the most powerful and refined Raspberry Pi ever built, offering significant improvements in speed, connectivity, and expandability.
-    </p>
-  </div>
-
-  <div class="row reverse">
-    <img src="pi12.jpg">
-    <p>
-      Its capabilities make it ideal for education, development, and advanced projects. 
-      The Pi 5 sets a new standard for small, versatile computing.
-    </p>
-  </div>
-</section>
-
+<!-- SCROLL BUTTONS -->
+<div id="upBtn" class="nav-btn">↑</div>
+<div id="downBtn" class="nav-btn">↓</div>
 
 <script>
-const sections = document.querySelectorAll('.section');
-function reveal() {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight - 120) sec.classList.add('visible');
+const sections = [...document.querySelectorAll('.section')];
+let current = 0;
+
+// Fade-in when visible
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
   });
+}, { threshold: 0.3 });
+sections.forEach(s => observer.observe(s));
+
+// Scroll functions
+function scrollToSection(i){
+  if(i < 0 || i >= sections.length) return;
+  sections[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  current = i;
 }
-window.addEventListener('scroll', reveal);
-reveal();
+
+document.getElementById('upBtn').addEventListener('click', () => scrollToSection(current-1));
+document.getElementById('downBtn').addEventListener('click', () => scrollToSection(current+1));
+
+// Update current on manual scroll
+window.addEventListener('scroll', () => {
+  const pos = window.scrollY + window.innerHeight/2;
+  sections.forEach((sec, i) => {
+    const top = sec.offsetTop;
+    const height = sec.offsetHeight;
+    if(pos > top && pos < top + height) current = i;
+  });
+});
 </script>
 
 </body>
