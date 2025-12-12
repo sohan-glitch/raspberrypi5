@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Raspberry Pi 5 | Showcase</title>
 <script src="https://cdn.tailwindcss.com"></script>
+
 <style>
 html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+
 body {
   background: linear-gradient(135deg, #050505, #10101b, #1a1a28);
   background-size: 400% 400%;
@@ -15,7 +17,12 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
 }
-@keyframes bgmove { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+
+@keyframes bgmove {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
 
 .text-animate {
   background: linear-gradient(90deg,#2563eb,#1e3a8a,#2563eb);
@@ -23,9 +30,13 @@ body {
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   animation:textcolor 10s ease infinite;
-  text-shadow:0 0 25px rgba(37,99,235,0.3),0 0 45px rgba(30,58,138,0.3);
+  text-shadow:0 0 25px rgba(37,99,235,0.3);
 }
-@keyframes textcolor { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+@keyframes textcolor {
+  0% { background-position:0% 50% }
+  50% { background-position:100% 50% }
+  100% { background-position:0% 50% }
+}
 
 .section {
   scroll-snap-align:start;
@@ -49,23 +60,30 @@ h2 {
   font-weight:900;
   margin-bottom:2rem;
 }
-p { max-width:1000px; text-align:justify; font-size:1.3rem; color:#dcdcdc; line-height:1.8; }
 
-.image-group {
-  display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-top:2.5rem;
+.section-content {
+  display:flex;
+  gap:2.5rem;
+  max-width:1200px;
+  margin-top:2rem;
+  align-items:center;
 }
-.image-group img {
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0,102,255,0.4);
-  animation: floaty 6s ease-in-out infinite alternate;
-  transition: transform 0.5s ease;
-  height: auto;
-  max-width: 8cm;  /* limits width */
-  max-height: 8cm; /* limits height */
-}
+.section-content.reverse { flex-direction:row-reverse; }
 
-@keyframes floaty { from{transform:translateY(0px)} to{transform:translateY(-12px)} }
-.image-group img:hover{ transform:scale(1.02); }
+.section-content img {
+  width:45%;
+  border-radius:12px;
+  box-shadow:0 0 25px rgba(0,102,255,0.4);
+  transition:0.4s;
+}
+.section-content img:hover { transform:scale(1.03); }
+
+.section-content p {
+  width:55%;
+  font-size:1.25rem;
+  line-height:1.8;
+  text-align:justify;
+}
 
 .nav-btn {
   position:fixed; right:25px; background:rgba(255,255,255,0.08);
@@ -74,11 +92,10 @@ p { max-width:1000px; text-align:justify; font-size:1.3rem; color:#dcdcdc; line-
   font-size:1.5rem; display:flex; justify-content:center; align-items:center;
   cursor:pointer; transition:0.3s; z-index:1000;
 }
-.nav-btn:hover{ background:rgba(255,255,255,0.25); }
-#upBtn{ bottom:90px; } #downBtn{ bottom:30px; }
+.nav-btn:hover { background:rgba(255,255,255,0.25); }
+#upBtn { bottom:90px; } 
+#downBtn { bottom:30px; }
 
-.spin { width:64px; height:64px; animation:spin 12s linear infinite; margin-bottom:2rem; }
-@keyframes spin{ to{ transform:rotate(360deg) } }
 </style>
 </head>
 
@@ -86,117 +103,198 @@ p { max-width:1000px; text-align:justify; font-size:1.3rem; color:#dcdcdc; line-
 
 <!-- PAGE 1 -->
 <section class="section" id="pg1">
-  <img src="img1.jpg" alt="Pi" class="spin rounded-full shadow-lg">
   <h2 class="text-animate">Raspberry Pi 5</h2>
-  <p>The Raspberry Pi 5 introduces unprecedented processing performance and improved I/O speed, enabling desktop-grade computing in an ultra-compact form factor.</p>
-  <div class="image-group">
+
+  <div class="section-content">
     <img src="pi1.jpg" alt="Pi1">
-    <img src="pi6.jpg" alt="Pi6">
+    <p>
+      The Raspberry Pi 5 marks a major leap forward in performance, features, and flexibility compared to its predecessors. 
+      Built around the new BCM2712 processor, it delivers a desktop-like experience in a form factor that fits in your hand. 
+      From tinkering and coding to robotics and lightweight desktop use, the Pi 5 sets a new standard for what a single-board computer can do.
+      With expanded interfaces and a redesigned power system, it is more capable than ever for advanced users, makers, and developers alike.
+      This model finally bridges the gap between hobby hardware and serious computing.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 2 -->
 <section class="section" id="pg2">
   <h2 class="text-animate">Hardware Overview</h2>
-  <p>The Pi 5 features a Broadcom BCM2712 quad-core ARM Cortex-A76 CPU at 2.4GHz and a VideoCore VII GPU for dual 4K60 displays. RP1 I/O controller integrates USB, PCIe, Ethernet, and HDMI for modern connectivity.</p>
-  <div class="image-group">
+
+  <div class="section-content reverse">
     <img src="pi4.jpg" alt="Pi4">
-    <img src="pi8.jpg" alt="Pi8">
+    <p>
+      At its core, the Raspberry Pi 5 features a quad-core ARM Cortex-A76 CPU clocked at 2.4GHz—representing a dramatic increase in raw computing power. 
+      The upgraded VideoCore VII GPU not only improves graphical output but also enables smooth dual 4K 60Hz monitor support. 
+      The addition of the RP1 I/O controller is a groundbreaking update, consolidating USB, Ethernet, camera, display, and PCIe into a unified high-speed system.
+      This careful redesign provides faster, cleaner communication between onboard components.
+      Altogether, the Pi 5’s hardware platform is engineered to be significantly more responsive and future-ready.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 3 -->
 <section class="section" id="pg3">
-  <h2 class="text-animate">Memory and Storage</h2>
-  <p>Available in 4GB and 8GB LPDDR4X RAM, Pi 5 supports NVMe SSDs via PCIe 2.0 x1 for ultra-fast storage. MicroSD remains supported for OS testing and quick deployments.</p>
-  <div class="image-group">
+  <h2 class="text-animate">Memory & Storage</h2>
+
+  <div class="section-content">
     <img src="pi9.png" alt="Pi9">
-    <img src="pi10.jpg" alt="Pi10">
+    <p>
+      The Raspberry Pi 5 offers 4GB or 8GB of LPDDR4X RAM, ensuring smooth multitasking and faster data throughput. 
+      For the first time, users can attach NVMe SSDs via the PCIe 2.0 interface, allowing extremely fast boot times and large application storage. 
+      This opens the door to using the Pi as a full micro-server, development machine, or media center with demanding storage needs.
+      MicroSD support remains for quick OS installs, prototyping, or portable system images.
+      Combined, these storage options provide unmatched versatility for both beginners and professionals.
+    </p>
   </div>
 </section>
+
 <!-- PAGE 4 -->
 <section class="section" id="pg4">
   <h2 class="text-animate">Connectivity</h2>
-  <p>Dual HDMI 2.0 ports, four USB ports (2×3.0 + 2×2.0), Gigabit Ethernet, Wi-Fi 5, and Bluetooth 5.0 offer unmatched versatility. The PCIe FPC connector allows high-speed expansion like NVMe SSDs and external controllers.</p>
-  <div class="image-group">
+
+  <div class="section-content reverse">
     <img src="pi2.jpg" alt="Pi2">
+    <p>
+      Connectivity on the Pi 5 is richer and faster than any previous generation. 
+      Dual HDMI 2.0 ports allow for high-resolution dual-monitor setups, transforming the Pi into a miniature workstation. 
+      A mix of USB 3.0 and USB 2.0 ports provides ample room for peripherals, while onboard Gigabit Ethernet ensures stable wired networking. 
+      Wi-Fi 5 and Bluetooth 5 enable wireless freedom for everyday devices. 
+      And the inclusion of a dedicated PCIe interface means external controllers and high-speed add-ons are now possible.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 5 -->
 <section class="section" id="pg5">
   <h2 class="text-animate">Software Ecosystem</h2>
-  <p>Raspberry Pi OS (Bookworm 64-bit) is optimized for performance and stability. Supports Python, C/C++, Node.js, Rust, and other languages. Ubuntu, Manjaro, or IoT-specific distributions can also be installed.</p>
-  <div class="image-group">
+
+  <div class="section-content">
     <img src="pi12.jpg" alt="Pi12">
+    <p>
+      Raspberry Pi OS Bookworm introduces major optimizations designed specifically for the Pi 5’s upgraded hardware. 
+      The OS feels snappier, boots faster, and handles large applications with noticeably better responsiveness. 
+      Developers can enjoy robust support for Python, C/C++, Node.js, Rust, and more, making the Pi highly adaptable for software projects. 
+      Alternative distributions like Ubuntu and Manjaro provide even more customization and professional-grade features.
+      Tools like VSCode, container runtimes, and compilers run well, transforming the Pi 5 into a full development environment.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 6 -->
 <section class="section" id="pg6">
-  <h2 class="text-animate">Performance and Cooling</h2>
-  <p>With CPU speeds nearly three times faster than Pi 4, the Pi 5 handles demanding applications. Official active cooling keeps thermals below 60°C under heavy load.</p>
-  <div class="image-group">
+  <h2 class="text-animate">Performance & Cooling</h2>
+
+  <div class="section-content reverse">
     <img src="pi11.jpg" alt="Pi11">
-    <img src="pi7.jpeg" alt="Pi7">
+    <p>
+      With nearly triple the CPU speed of the Pi 4 and significantly improved GPU performance, the Pi 5 handles demanding workloads with ease. 
+      Whether you're running web servers, emulating retro games, processing images, or compiling code, it maintains high performance without slowdown. 
+      The official active cooler and redesigned airflow ensure sustained thermal stability under heavy load. 
+      Thermal throttling is dramatically reduced, allowing the Pi to run at peak frequencies longer. 
+      This makes it suitable for continuous operation in advanced projects or production environments.
+    </p>
   </div>
 </section>
+
 <!-- PAGE 7 -->
 <section class="section" id="pg7">
-  <h2 class="text-animate">AI and Automation</h2>
-  <p>The Pi 5’s improved processing power enables TensorFlow Lite and OpenCV to run efficiently on-device. GPIO, I²C, and SPI allow connection to sensors, cameras, and motors for robotics and smart automation projects.</p>
-  <div class="image-group">
+  <h2 class="text-animate">AI & Automation</h2>
+
+  <div class="section-content">
     <img src="pi19.jpg" alt="Pi19">
+    <p>
+      The Raspberry Pi 5 is powerful enough to run machine-learning frameworks like TensorFlow Lite, MediaPipe, and ONNX Runtime with impressive efficiency. 
+      This enables facial recognition, object detection, voice processing, and edge-AI tasks directly on the board. 
+      GPIO, I²C, SPI, and UART interfaces provide rich connectivity for sensors, motors, displays, and automation modules. 
+      Robotics enthusiasts can leverage the increased speed for real-time decision-making in autonomous systems.
+      Combined with Python’s simplicity, the Pi 5 becomes a perfect platform for AI-driven hobby and research projects.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 8 -->
 <section class="section" id="pg8">
-  <h2 class="text-animate">Networking and Internet</h2>
-  <p>Networking is handled by the RP1 southbridge, providing stable Gigabit Ethernet and Wi-Fi 5 connectivity. Remote control via SSH and VNC comes pre-enabled, and mDNS allows zero-configuration local access.</p>
-  <div class="image-group">
+  <h2 class="text-animate">Networking & Internet</h2>
+
+  <div class="section-content reverse">
     <img src="pi17.png" alt="Pi17">
-    <img src="images.png" alt="Images">
+    <p>
+      The Pi 5’s RP1 southbridge enables faster and more stable wiring for both Wi-Fi and Ethernet. 
+      Gigabit Ethernet provides reliable connectivity for servers, NAS setups, or high-bandwidth data transfers. 
+      Wireless performance is improved thanks to better antenna routing and updated firmware. 
+      Tools like SSH, VNC, and mDNS make remote access simple even for beginners. 
+      These robust features make the Pi 5 one of the most network-capable single-board computers available today.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 9 -->
 <section class="section" id="pg9">
   <h2 class="text-animate">Multimedia</h2>
-  <p>Dual 4K displays with HDR, HEVC decoding, and OpenGL ES 3.1 support make the Pi 5 a compact yet powerful media player. Kodi, Plex, and VLC run effortlessly, turning this small board into a complete entertainment system.</p>
-  <div class="image-group">
+
+  <div class="section-content">
     <img src="pi13.jpg" alt="Pi13">
-    <img src="pi14.jpg" alt="Pi14">
+    <p>
+      With dual 4K 60Hz support, HEVC decoding, and OpenGL ES 3.1, the Pi 5 excels as a multimedia system. 
+      It can run Kodi, Plex, VLC, and various streaming applications smoothly, making it an excellent home-theater solution. 
+      Media playback is crisp, fluid, and highly responsive, even with high-bitrate video files. 
+      The improved GPU also enables lightweight gaming and emulation at higher frame rates.
+      These enhancements make the Pi 5 a compact entertainment powerhouse.
+    </p>
   </div>
 </section>
+
 <!-- PAGE 10 -->
 <section class="section" id="pg10">
-  <h2 class="text-animate">Power and Energy Efficiency</h2>
-  <p>The Pi 5 consumes up to 15 W under full load and works best with a USB-C 5V/5A adapter. Improved power regulation ensures cleaner voltage delivery to peripherals and stable performance.</p>
-  <div class="image-group">
+  <h2 class="text-animate">Power & Efficiency</h2>
+
+  <div class="section-content reverse">
     <img src="pi15.jpg" alt="Pi15">
-    <img src="pi16.jpg" alt="Pi16">
-    <img src="pi18.png" alt="Pi18">
+    <p>
+      The Pi 5’s redesigned power delivery system allows for more stable performance and better peripheral support. 
+      With a 5V/5A USB-C power supply, it can reliably drive high-speed SSDs, cooling solutions, and multiple accessories. 
+      Despite its performance boost, the Pi remains highly energy-efficient, consuming far less power than traditional desktop processors. 
+      Improved regulators ensure cleaner voltage output for attached devices. 
+      This efficient design makes it ideal for 24/7 servers, IoT hubs, and monitoring systems.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 11 -->
 <section class="section" id="pg11">
-  <h2 class="text-animate">Physical Build and Design</h2>
-  <p>The refined layout enhances cable management and airflow. New power button, RTC header, and PCIe port make it more user-friendly while retaining the classic 85×56 mm form factor.</p>
-  <div class="image-group">
+  <h2 class="text-animate">Physical Build & Design</h2>
+
+  <div class="section-content">
     <img src="pi21.jpg" alt="Pi21">
-    <img src="pi20.png" alt="Pi20">
+    <p>
+      The Raspberry Pi 5 introduces a refined board layout that improves cable routing and airflow. 
+      A new power button provides true on/off functionality, addressing one of the most common user requests. 
+      The addition of an RTC header enables accurate timekeeping without internet. 
+      The PCIe FPC connector expands possibilities for high-speed modules and external storage. 
+      Despite these enhancements, the Pi maintains the familiar 85×56 mm form factor for broad accessory compatibility.
+    </p>
   </div>
 </section>
 
 <!-- PAGE 12 -->
 <section class="section" id="pg12">
-  <h2 class="text-animate">Pricing and Conclusion</h2>
-  <p>Retailing around $60 (4GB) and $80 (8GB), Raspberry Pi 5 brings desktop-class power to makers and professionals. Its unmatched combination of performance, flexibility, and price cements its legacy as the go-to single-board computer.</p>
+  <h2 class="text-animate">Conclusion</h2>
+
+  <div class="section-content reverse">
+    <img src="pi20.png" alt="Pi20">
+    <p>
+      The Raspberry Pi 5 is a milestone release that transforms the beloved SBC into a true compact computer. 
+      Its increased speed, improved graphics, and expanded I/O make it suitable for serious development, education, AI, automation, and entertainment. 
+      With prices starting around $60, it delivers unmatched value for its capabilities. 
+      Whether you are a hobbyist or a professional, the Pi 5 offers the tools needed to bring ideas to life. 
+      This generation stands as one of the most versatile and powerful Raspberry Pi boards ever created.
+    </p>
+  </div>
 </section>
 
-<!-- SCROLL BUTTONS -->
+
+<!-- NAV BUTTONS -->
 <div id="upBtn" class="nav-btn">↑</div>
 <div id="downBtn" class="nav-btn">↓</div>
 
@@ -222,7 +320,6 @@ function scrollToSection(i){
 document.getElementById('upBtn').addEventListener('click', () => scrollToSection(current-1));
 document.getElementById('downBtn').addEventListener('click', () => scrollToSection(current+1));
 
-// Update current on manual scroll
 window.addEventListener('scroll', () => {
   const pos = window.scrollY + window.innerHeight/2;
   sections.forEach((sec, i) => {
